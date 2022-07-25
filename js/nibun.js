@@ -17,7 +17,7 @@ function nibunhou(a,b,EPS) {
   let el = [a];
   do {
     s = s + 1;
-    c = (a + b) / 2.0;   //２分計算
+    c = (a + b) / 2.0;   
     el.push(c);
     if (func_y(c) * func_y(a) < 0) b = c; 
     else a = c;    
