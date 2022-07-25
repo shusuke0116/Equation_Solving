@@ -3,7 +3,7 @@ class vcanvas{
         this.canvas = canvas
         this.ctx = canvas.getContext( '2d' );
     }
-
+    //縦軸の設定
     settateAxis(tate,ziku){
         this.tate = tate;
         this.ctxtate = ziku.getContext( '2d' );
@@ -25,7 +25,7 @@ class vcanvas{
             t = 400;
         } 
     }
-
+    //横軸の設定
     setyokoAxis(yoko,ziku){
         this.yoko = yoko;
         this.ctxyoko = ziku.getContext( '2d' );
@@ -35,27 +35,28 @@ class vcanvas{
             this.ctxyoko.fillText(i, (i / yoko) * 430 + 25,20);
         }
     }
-
+    //グラフの描画
     writeGraph(result,color,num){
         this.num = num;
         
         let yokoziku = [0];
-        for(let i=1;i <= this.yoko;i++){
+        for(let i=1;i <= this.yoko;i++){　//１～計算回数分
             yokoziku.push(i);
         }
 
         let n = 0;      
-        do{
-            n = n + 10;
+        do{      
+            n = n + 10;  //400以内で尺度を設定
         }while(result[2]*(n + 10) < 400);
+        
         this.ctx.lineWidth = 3;
         if(color == 1){
             this.ctx.strokeStyle = "blue";
         }else{
             this.ctx.strokeStyle = "red";
         }
-        
-        for(let i=2;i < result.length - 1;i++){
+        //線を描画
+        for(let i=2;i < result.length - 1;i++){ 
             this.ctx.beginPath();
             this.ctx.moveTo(((i -1)/ this.yoko) * 410 +25, 400 - result[i]*n);
             this.ctx.lineTo(( i/ this.yoko) * 410 +25, 400 - result[i+1]*n );
