@@ -16,6 +16,7 @@ class mediation{
         this.tate = tate;
         this.yoko = yoko;
         
+        //許容誤差の設定ボタン
         e02.addEventListener("click", () => {  
             this.EPS = 0.0001;
         });
@@ -26,6 +27,7 @@ class mediation{
             this.EPS = 0.000000001;      
         });
 
+        //clearボタン
         this.clear.addEventListener("click", () => {
             this.ctx = canvas.getContext( '2d' );
             this.ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -35,9 +37,10 @@ class mediation{
             this.ctxtate.clearRect(0,0,tate.width,tate.height);
         });
         
+        //startボタン
         this.start.addEventListener("click", () => {    
-            this.number = Number(document.querySelector("#number").value);
-
+            this.number = Number(document.querySelector("#number").value); //初期値の受け取り
+            //２分法
             let n1 = new nibun(this.number,this.EPS);
             let result1 = n1.nibunhou();
             this.num1.innerHTML = "計算回数：" + result1[0];
@@ -45,7 +48,7 @@ class mediation{
             this.nibun.setyokoAxis(result1[0],this.yoko);
             this.nibun.settateAxis([result1[2],result1[result1.length - 2]],tate);
             this.nibun.writeGraph(result1,0,this.number);
-
+            //ニュートン法
             let n2 = new newton(this.number,this.EPS);
             let result2 = n2.newtonhou();
             this.num2.innerHTML = "計算回数：" + result2[0];
