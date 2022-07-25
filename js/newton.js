@@ -1,6 +1,6 @@
 // ニュートン法による根の計算
 class newton{
-  constructor(a,EPS){
+  constructor(a,EPS){   //初期値と許容誤差
     this.a = Number(a);
     this.EPS = Number(EPS);
   }
@@ -31,11 +31,10 @@ function newtonhou(a,EPS) {
 
   return result;
 }
-
+//関数定義
 function func_y(x) {
   return Math.pow(x, 3.0) + x - 1.0;
 }
-
 function func_z(x) {
   return 3.0 * Math.pow(x, 2.0) + 1.0;
 }
