@@ -1,0 +1,71 @@
+body {
+    background-color: #fffffc;
+}
+#panel {
+  width: 250px;
+}
+#result{
+  background-color: #7ac5ed;
+    width: 250px;
+}
+.canvas1 {
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.area {
+  background-color: #e9b4de;
+  margin-top: 10px;
+  position: relative;
+}
+#tateziku{
+  background-color: #e9b4de;
+  position: absolute;
+  border: solid;
+  border-color: #000000;
+  bottom:0;
+  left: 0;
+}
+#yokoziku{
+  background-color: #e9b4de;
+  position: absolute;
+  bottom:0;
+  left: 0;
+  border: solid;
+  border-color: #000000;
+}
+#sen{
+  border: solid;
+  border-color: #000000;
+  position: absolute;
+  bottom:0;
+}
+#red{
+  position:absolute;
+  color:red; 
+  top:30px;
+  right:2px;
+}
+#blue{
+  position:absolute;
+  color:blue;
+  top:50px;
+  right:2px;
+}
+#area1 {
+  width: 460px;
+  height: 460px;
+}
+.normal {
+  width: 80px;
+  height: 60px;
+  font-size: 16pt;
+}
+.clear {
+  font-size: 14pt;
+  width: 160px;
+  height: 30px;
+}
+#contents {
+  display: flex;
+}
