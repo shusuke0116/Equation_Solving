@@ -1,6 +1,6 @@
 //  2分法による根の計算
 class nibun{
-    constructor(a,EPS){
+    constructor(a,EPS){     //初期値と許容誤差
         this.a = Number(a);
         this.EPS = Number(EPS);
     }
@@ -17,7 +17,7 @@ function nibunhou(a,b,EPS) {
   let el = [a];
   do {
     s = s + 1;
-    c = (a + b) / 2.0; 
+    c = (a + b) / 2.0;   //２分計算
     el.push(c);
     if (func_y(c) * func_y(a) < 0) b = c; 
     else a = c;    
@@ -33,7 +33,7 @@ function nibunhou(a,b,EPS) {
   }
   return result;
 }
-
+//関数定義
 function func_y(x) {
   return Math.pow(x, 3.0) + x - 1.0;
 }
