@@ -21,7 +21,7 @@ class vcanvas{
                     s = s - 1;
                 }
             }
-            this.ctxtate.fillText("10^" + s, 1, t);
+            this.ctxtate.fillText("10^" + s, 0, t);
             t = 400;
         } 
     }
