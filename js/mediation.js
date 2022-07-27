@@ -39,24 +39,33 @@ class mediation{
         
         //startボタン
         this.start.addEventListener("click", () => {    
-            this.number = Number(document.querySelector("#number").value); //初期値の受け取り
-            //２分法
-            let n1 = new nibun(this.number,this.EPS);
+            this.number = Number(document.querySelector("#number").value);
+            this.kansu3 = Number(document.querySelector("#kansu3").value);
+            this.kansu2 = Number(document.querySelector("#kansu2").value);
+            this.kansu1 = Number(document.querySelector("#kansu1").value);
+            this.kansu0 = Number(document.querySelector("#kansu0").value);
+
+            let n1 = new nibun(this.number,this.EPS,this.kansu3,this.kansu2,this.kansu1,this.kansu0);
             let result1 = n1.nibunhou();
             this.num1.innerHTML = "計算回数：" + result1[0];
             this.ans1.innerHTML = "算出された根：" + result1[1];
             this.nibun.setyokoAxis(result1[0],this.yoko);
             this.nibun.settateAxis([result1[2],result1[result1.length - 2]],tate);
             this.nibun.writeGraph(result1,0,this.number);
-            //ニュートン法
-            let n2 = new newton(this.number,this.EPS);
+
+            let n2 = new newton(this.number,this.EPS,this.kansu3,this.kansu2,this.kansu1,this.kansu0);
             let result2 = n2.newtonhou();
-            this.num2.innerHTML = "計算回数：" + result2[0];
-            this.ans2.innerHTML = "算出された根：" + result2[1];     
-            this.newton.setyokoAxis(result1[0],this.yoko);
-            this.newton.settateAxis([result1[2],result1[result1.length - 2]],tate);
-            this.newton.writeGraph(result2,1,this.number);
-        });       
+            if(result2[1] > 0){
+                this.num2.innerHTML = "計算回数：" + result2[0];
+                this.ans2.innerHTML = "算出された根：" + result2[1];     
+                this.newton.setyokoAxis(result1[0],this.yoko);
+                this.newton.settateAxis([result1[2],result1[result1.length - 2]],tate);
+                this.newton.writeGraph(result2,1,this.number);
+            } else{
+                this.num2.innerHTML = "計算不能";
+                this.ans2.innerHTML = "";
+            }
+        });
     }
 }
 
